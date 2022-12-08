@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Posterity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_lookup">Lookup</string>
+    <string name="title_refuse_station">Refuse stations</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_disposal_guide">Disposal Guide</string>
+    <string name="by_bin">By Bin</string>
+    <string name="by_item">By Item</string>
+
+    <string name="bin_rubbish">Rubbish Bin</string>
+    <string name="bin_rubbish_guide">Guide for rubbish bin</string>
+    <string name="bin_recycling">Recycling Bin</string>
+    <string name="bin_recycling_guide">Guide for recycling bin</string>
+    <string name="bin_garden_waste">Garden Waste Bin</string>
+    <string name="bin_garden_waste_guide">Guide for garden waste</string>
+
+</resources>

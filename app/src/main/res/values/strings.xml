@@ -11,10 +11,11 @@
     <string name="by_item">By Item</string>
 
     <string name="bin_rubbish">Rubbish Bin</string>
-    <string name="bin_rubbish_guide">Guide for rubbish bin</string>
+    <string name="bin_rubbish_description">You can put the following into your rubbish bin:\n\t\u002E Plastic wraps and foil wraps\n\t\u002E Disposable cups, plates and cutlery\n\t\u002E Polystyrene takeaway containers and meat trays\n\t\u002E Nappies and sanitary products\n\t\u002E Broken glass, wrapped\n\t\u002E Type 3,6,7 plastic\n\t\u002E Weeds</string>
     <string name="bin_recycling">Recycling Bin</string>
-    <string name="bin_recycling_guide">Guide for recycling bin</string>
+    <string name="bin_recycling_description">You can put the following into your recycling bin:\n\t\u002E Glass bottles and glass jars\n\t\u002E Tin, steel and aluminium cans, including empty aerosols\n\t\u002E Type 1,2,5 plastic\n\t\u002E Pizza boxes(remove any leftover food)\n\t\u002E Newspapers, magazines, advertising mail and envelopes\n\t\u002E Paper, egg cartons and cardboard packaging\n\t\u002E Milk and juice cartons, including Tetra Pak cartons(except on Great Barrier Island)</string>
     <string name="bin_garden_waste">Garden Waste Bin</string>
-    <string name="bin_garden_waste_guide">Guide for garden waste</string>
-
+    <string name="bin_garden_waste_description">The following can go into your garden waste bin:\n\t\u002E Lawn clipping, shrubs, flowers\n\t\u002E Tree prunings, branches, weeds and old plants</string>
+    <string name="bin_compost">Compost Bin</string>
+    <string name="bin_compost_description">The following can go into your compost bin:\n\t\u002E Grass clippings, tree leaves, vegetable food scraps\n\t\u002E Black and white newspaper, printer paper\n\t\u002E Most disease free yard waste, cardboard\n\t\u002E Vegetarian animal manure(e.g. cows, horses, rabbits, hamsters, etc.)\n\t\u002E Wood shavings or sawdust</string>
 </resources>

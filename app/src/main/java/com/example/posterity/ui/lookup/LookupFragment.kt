@@ -10,7 +10,9 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
 import com.example.posterity.R
+import com.example.posterity.data.BinList
 import com.example.posterity.databinding.FragmentLookupBinding
+import com.example.posterity.ui.lookup.bin.BinListAdapter
 import com.example.posterity.ui.lookup.bin.BinLookupFragment
 import com.example.posterity.ui.lookup.item.ItemLookupFragment
 
@@ -27,8 +29,8 @@ class LookupFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val lookupViewModel =
-            ViewModelProvider(this).get(LookupViewModel::class.java)
+//        val lookupViewModel =
+//            ViewModelProvider(this).get(LookupViewModel::class.java)
 
         _binding = FragmentLookupBinding.inflate(inflater, container, false)
 
@@ -50,7 +52,7 @@ class LookupFragment : Fragment() {
                 replace<ItemLookupFragment>(R.id.lookup_container_view)
             }
         }
-        
+
         return binding.root
     }
 

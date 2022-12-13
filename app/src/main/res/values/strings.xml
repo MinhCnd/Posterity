@@ -18,4 +18,5 @@
     <string name="bin_garden_waste_description">The following can go into your garden waste bin:\n\t\u002E Lawn clipping, shrubs, flowers\n\t\u002E Tree prunings, branches, weeds and old plants</string>
     <string name="bin_compost">Compost Bin</string>
     <string name="bin_compost_description">The following can go into your compost bin:\n\t\u002E Grass clippings, tree leaves, vegetable food scraps\n\t\u002E Black and white newspaper, printer paper\n\t\u002E Most disease free yard waste, cardboard\n\t\u002E Vegetarian animal manure(e.g. cows, horses, rabbits, hamsters, etc.)\n\t\u002E Wood shavings or sawdust</string>
+    <string name="list_item_chevron">list item chevron</string>
 </resources>

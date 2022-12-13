@@ -19,12 +19,10 @@ class BinAdapter(private val dataSet: List<Bin>) : RecyclerView.Adapter<BinViewH
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BinViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.bin_row_item, parent, false)
 
-
         return BinViewHolder(view)
     }
 
     override fun onBindViewHolder(viewHolder: BinViewHolder, position: Int) {
-        viewHolder.itemView.isActivated
         viewHolder.titleView.text = dataSet[position].name
         viewHolder.descriptionView.text = dataSet[position].description
         val isExpanded = position == expandedPosition
@@ -33,6 +31,10 @@ class BinAdapter(private val dataSet: List<Bin>) : RecyclerView.Adapter<BinViewH
 
         if (isExpanded) {
             previousExpandedPosition = position
+        }
+
+        if(position == (itemCount - 1) ) {
+            viewHolder.divider.visibility = View.GONE
         }
 
         viewHolder.itemView.setOnClickListener {

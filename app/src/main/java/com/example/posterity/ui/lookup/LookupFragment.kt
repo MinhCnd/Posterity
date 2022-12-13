@@ -8,11 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import androidx.lifecycle.ViewModelProvider
 import com.example.posterity.R
-import com.example.posterity.data.BinList
 import com.example.posterity.databinding.FragmentLookupBinding
-import com.example.posterity.ui.lookup.bin.BinListAdapter
 import com.example.posterity.ui.lookup.bin.BinLookupFragment
 import com.example.posterity.ui.lookup.item.ItemLookupFragment
 

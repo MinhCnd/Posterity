@@ -17,4 +17,6 @@
     <dimen name="bin_item_vertical_margin">10dp</dimen>
     <dimen name="bin_group_indicator_width"> 20dp</dimen>
     <dimen name="bin_group_indicator_end_margin"> 20dp</dimen>
+    <dimen name="bin_list_divider_width">320dp</dimen>
+    <dimen name="bin_list_divider_height">1dp</dimen>
 </resources>

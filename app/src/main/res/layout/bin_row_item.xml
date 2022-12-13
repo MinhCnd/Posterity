@@ -5,16 +5,41 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/bin_item_start_margin"
+        android:paddingVertical="@dimen/bin_item_vertical_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/descriptionView"
         android:layout_width="match_parent"
-        android:paddingStart="@dimen/bin_item_start_margin"
-        android:paddingEnd="@dimen/bin_item_start_margin"
-        android:paddingBottom="@dimen/bin_item_vertical_margin"
+        android:layout_marginStart="@dimen/bin_item_start_margin"
+        android:paddingVertical="@dimen/bin_item_vertical_margin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleView"
         android:layout_height="wrap_content"/>
 
+    <ImageView
+        android:id="@+id/iconView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/titleView"
+        app:layout_constraintBottom_toBottomOf="@id/titleView"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/lookup_selection_horizontal_margin"
+        android:src="@drawable/list_item_icon"
+        android:contentDescription="@string/list_item_chevron" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="@dimen/bin_list_divider_width"
+        android:layout_height="@dimen/bin_list_divider_height"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/descriptionView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

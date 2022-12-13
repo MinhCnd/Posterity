@@ -23,17 +23,9 @@ class BinLookupFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d("BinLookupFragment","OnCreateView")
         _binding = FragmentBinLookupBinding.inflate(inflater, container, false)
-        val binList = BinList(this.resources)
 
-        binding.binListView.setAdapter( BinListAdapter(this.requireContext(), binList) )
-
-        binding.binListView.doOnLayout {
-            val indicatorStart = it.width - resources.getDimensionPixelSize(R.dimen.bin_group_indicator_end_margin) - resources.getDimensionPixelSize(R.dimen.bin_group_indicator_width)
-            val indicatorEnd = it.width - resources.getDimensionPixelSize(R.dimen.bin_group_indicator_end_margin)
-            binding.binListView.setIndicatorBoundsRelative(indicatorStart , indicatorEnd)
-        }
+        binding.binRecyclerView.adapter = BinAdapter(BinList(this.resources))
 
         return binding.root
     }

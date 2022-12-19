@@ -1,6 +1,8 @@
 package com.example.posterity.data
 
-data class Bin(
-    val name: String,
-    val description: String
-)
+enum class Bin{
+    RUBBISH,
+    RECYCLING,
+    COMPOST,
+    GARDEN_WASTE
+}

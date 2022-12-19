@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import com.example.posterity.data.Item
-import com.example.posterity.data.ItemList
+import com.example.posterity.data.itemList
 import com.example.posterity.databinding.FragmentItemLookupBinding
 
 class ItemLookupFragment : Fragment() {
@@ -25,7 +24,7 @@ class ItemLookupFragment : Fragment() {
     ): View {
 
         _binding = FragmentItemLookupBinding.inflate(inflater, container, false)
-        val fullItemList = ItemList(resources)
+        val fullItemList = itemList()
         val adapter = ItemAdapter(fullItemList)
         binding.itemRecyclerView.adapter = adapter
 

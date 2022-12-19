@@ -1,20 +1,18 @@
 package com.example.posterity.ui.lookup.bin
 
-import android.util.Log
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.example.posterity.R
 import com.example.posterity.data.Bin
 
 
 class BinAdapter(private val dataSet: List<Bin>) : RecyclerView.Adapter<BinViewHolder>() {
 
-    var expandedPosition = -1
-    var previousExpandedPosition = -1
+    private var expandedPosition = -1
+    private var previousExpandedPosition = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BinViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.bin_row_item, parent, false)
@@ -22,9 +20,9 @@ class BinAdapter(private val dataSet: List<Bin>) : RecyclerView.Adapter<BinViewH
         return BinViewHolder(view)
     }
 
-    override fun onBindViewHolder(viewHolder: BinViewHolder, position: Int) {
-        viewHolder.titleView.text = dataSet[position].name
-        viewHolder.descriptionView.text = dataSet[position].description
+    override fun onBindViewHolder(viewHolder: BinViewHolder, @SuppressLint("RecyclerView") position: Int) {
+        viewHolder.titleView.text = getBinName(dataSet[position], viewHolder.itemView.resources)
+        viewHolder.descriptionView.text = getBinDescription(dataSet[position], viewHolder.itemView.resources)
         val isExpanded = position == expandedPosition
         viewHolder.descriptionView.visibility = if (isExpanded) View.VISIBLE else View.GONE
         viewHolder.itemView.isActivated = isExpanded

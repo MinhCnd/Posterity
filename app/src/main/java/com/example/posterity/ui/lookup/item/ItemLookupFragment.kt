@@ -5,11 +5,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
-import com.example.posterity.data.Item
-import com.example.posterity.data.ItemList
+import androidx.fragment.app.viewModels
+import com.example.posterity.R
+import com.example.posterity.data.Bin
 import com.example.posterity.databinding.FragmentItemLookupBinding
+import com.example.posterity.ui.lookup.bin.getBinIcon
+import com.example.posterity.ui.lookup.bin.getBinName
 
 class ItemLookupFragment : Fragment() {
     private var _binding: FragmentItemLookupBinding? = null
@@ -25,8 +31,21 @@ class ItemLookupFragment : Fragment() {
     ): View {
 
         _binding = FragmentItemLookupBinding.inflate(inflater, container, false)
-        val fullItemList = ItemList(resources)
-        val adapter = ItemAdapter(fullItemList)
+        val itemLookupViewModel: ItemLookupViewModel by viewModels()
+
+        // Display bin badges
+        Bin.values().forEach { bin ->
+            val viewToAdd = inflater.inflate(R.layout.bin_badge, binding.itemBadges, false)
+            val badgeTextView = viewToAdd.findViewById<TextView>(R.id.name)
+            val badgeIconImageView = viewToAdd.findViewById<ImageView>(R.id.icon)
+
+            badgeTextView.text = getBinName(bin, resources)
+
+            badgeIconImageView.setImageDrawable(ResourcesCompat.getDrawable(resources, getBinIcon(bin), null))
+            binding.itemBadges.addView(viewToAdd)
+        }
+
+        val adapter = ItemAdapter(itemLookupViewModel.fullItemList)
         binding.itemRecyclerView.adapter = adapter
 
         binding.itemSearchView.setOnQueryTextListener ( object: SearchView.OnQueryTextListener {
@@ -36,7 +55,7 @@ class ItemLookupFragment : Fragment() {
             }
 
             override fun onQueryTextChange(filter: String?): Boolean {
-                val newList = filter?.let{ fullItemList.filter { item -> item.name.lowercase().contains(it.lowercase()) }}
+                val newList = filter?.let{ itemLookupViewModel.fullItemList.filter { item -> item.name.lowercase().contains(it.lowercase()) }}
                 newList?.run{adapter.setItemList(newList)}
                 return false
             }

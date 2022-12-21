@@ -27,4 +27,14 @@
         android:gravity="center_vertical"
         tools:text="Tin can"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/icon_list"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

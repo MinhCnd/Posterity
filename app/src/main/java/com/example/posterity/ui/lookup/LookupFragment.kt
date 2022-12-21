@@ -26,8 +26,6 @@ class LookupFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        val lookupViewModel =
-//            ViewModelProvider(this).get(LookupViewModel::class.java)
 
         _binding = FragmentLookupBinding.inflate(inflater, container, false)
 

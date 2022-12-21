@@ -4,7 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="lookup_selection_horizontal_margin">24dp</dimen>
-    <dimen name="title_text">40sp</dimen>
     <dimen name="divider_height">40dp</dimen>
     <dimen name="divider_width">1dp</dimen>
 
@@ -13,5 +12,9 @@
     <dimen name="bin_list_divider_width">320dp</dimen>
     <dimen name="bin_list_divider_height">1dp</dimen>
 
+    <dimen name="bin_badge_width">20dp</dimen>
+    <dimen name="bin_badge_height">10dp</dimen>
+    <dimen name="search_badge_description_box_height"> 60dp </dimen>
     <dimen name="search_item_height"> 40dp </dimen>
+    <dimen name="search_item_icon_padding"> 5dp</dimen>
 </resources>

@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.lookup.LookupFragment">
 
-    <TextView
-        android:id="@+id/screen_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/title_lookup"
-        android:textSize="@dimen/title_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/bin_lookup_button"
         android:layout_width="wrap_content"
@@ -25,7 +14,7 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="@string/by_bin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/screen_title" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/item_lookup_button"

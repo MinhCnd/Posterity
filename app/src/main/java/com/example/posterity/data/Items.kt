@@ -1,14 +1,12 @@
 package com.example.posterity.data
 
-import android.content.res.Resources
-
-fun ItemList(resources: Resources) : List<Item> {
-    val binList = BinList(resources)
+fun itemList() : List<Item> {
     return listOf(
-        Item("Tin can", "rinse and empty", listOf(binList[1])),
-        Item("Takeaway coffee cups", "rinse and empty", listOf(binList[0])),
-        Item("Plastic Meat Tray", "rinse and dry", listOf(binList[1])),
-        Item("Glass Bottles","rinse and dry", listOf(binList[1]))
+        Item("Tin can", "rinse and empty", setOf(Bin.RECYCLING)),
+        Item("Takeaway coffee cups", "rinse and empty", setOf(Bin.RUBBISH)),
+        Item("Plastic Meat Tray", "rinse and dry", setOf(Bin.RECYCLING)),
+        Item("Glass Bottles","rinse and dry", setOf(Bin.RECYCLING)),
+        Item("Apple, Vegetable","", setOf(Bin.COMPOST,Bin.RUBBISH))
 
     )
 }

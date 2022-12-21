@@ -16,6 +16,19 @@
         android:background="@drawable/bin_item_box"
         app:queryHint="Search items"/>
 
+    <GridLayout
+        android:id="@+id/item_badges"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_badge_description_box_height"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        app:layout_constraintTop_toBottomOf="@id/item_search_view"
+        app:layout_constraintStart_toStartOf="@id/item_search_view"
+        android:rowCount="2"
+        android:columnCount="3"
+        android:background="@drawable/bin_item_box">
+    </GridLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/item_recycler_view"
         android:layout_width="match_parent"
@@ -24,7 +37,7 @@
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_search_view"
+        app:layout_constraintTop_toBottomOf="@id/item_badges"
         android:background="@drawable/bin_item_box"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 

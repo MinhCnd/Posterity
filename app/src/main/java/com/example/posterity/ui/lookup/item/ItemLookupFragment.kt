@@ -11,8 +11,10 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.posterity.MainActivity
 import com.example.posterity.R
 import com.example.posterity.data.Bin
+import com.example.posterity.data.Item
 import com.example.posterity.databinding.FragmentItemLookupBinding
 import com.example.posterity.ui.lookup.bin.getBinIcon
 import com.example.posterity.ui.lookup.bin.getBinName
@@ -31,7 +33,9 @@ class ItemLookupFragment : Fragment() {
     ): View {
 
         _binding = FragmentItemLookupBinding.inflate(inflater, container, false)
-        val itemLookupViewModel: ItemLookupViewModel by viewModels()
+        val itemLookupViewModel: ItemLookupViewModel by viewModels {
+            ItemLookupViewModelFactory((activity as MainActivity).repository)
+        }
 
         // Display bin badges
         Bin.values().forEach { bin ->
@@ -44,9 +48,13 @@ class ItemLookupFragment : Fragment() {
             badgeIconImageView.setImageDrawable(ResourcesCompat.getDrawable(resources, getBinIcon(bin), null))
             binding.itemBadges.addView(viewToAdd)
         }
+        var adapter = ItemAdapter(emptyList())
+        itemLookupViewModel.fullItemList.observe(viewLifecycleOwner) {
+            adapter = ItemAdapter(it)
+            binding.itemRecyclerView.adapter = adapter
+        }
 
-        val adapter = ItemAdapter(itemLookupViewModel.fullItemList)
-        binding.itemRecyclerView.adapter = adapter
+
 
         binding.itemSearchView.setOnQueryTextListener ( object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -55,7 +63,10 @@ class ItemLookupFragment : Fragment() {
             }
 
             override fun onQueryTextChange(filter: String?): Boolean {
-                val newList = filter?.let{ itemLookupViewModel.fullItemList.filter { item -> item.name.lowercase().contains(it.lowercase()) }}
+                val newList = filter?.let{
+                    itemLookupViewModel.fullItemList.value?.filter { item -> item.name?.lowercase()
+                        ?.contains(it.lowercase()) ?: false } ?: emptyList<Item>()
+                }
                 newList?.run{adapter.setItemList(newList)}
                 return false
             }

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.posterity.R
 
-class IconAdapter() : RecyclerView.Adapter<IconViewHolder>(){
+class IconAdapter : RecyclerView.Adapter<IconViewHolder>(){
     private var iconIdList = emptyList<Int>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconViewHolder {

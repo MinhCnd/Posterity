@@ -6,3 +6,5 @@ enum class Bin{
     COMPOST,
     GARDEN_WASTE
 }
+
+

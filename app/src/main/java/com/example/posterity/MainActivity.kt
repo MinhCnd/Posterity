@@ -8,11 +8,19 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.posterity.data.AppDatabase
+import com.example.posterity.data.AppRepository
 import com.example.posterity.databinding.ActivityMainBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    val activityScope = CoroutineScope(SupervisorJob())
+    val database by lazy { AppDatabase.getDatabase(this, activityScope)}
+    val repository by lazy { AppRepository(database.itemDao())}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

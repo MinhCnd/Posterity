@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.posterity.R
+import com.example.posterity.data.Bin
 import com.example.posterity.data.Item
 import com.example.posterity.ui.lookup.bin.getBinIcon
 
@@ -17,7 +18,10 @@ class ItemAdapter(private var itemList: List<Item>) : RecyclerView.Adapter<ItemV
 
     override fun onBindViewHolder(viewHolder: ItemViewHolder, position: Int) {
         viewHolder.itemName.text = itemList[position].name
-        viewHolder.setIconIdList(itemList[position].binDesignation.map{ getBinIcon(it) })
+        val iconList = mutableListOf<Bin>()
+        itemList[position].binDesignation?.let { iconList.add(Bin.values()[it])}
+        itemList[position].subBinDesignation?.let { iconList.add(Bin.values()[it])}
+        viewHolder.setIconIdList(iconList.map { getBinIcon(it)})
     }
 
     override fun getItemCount() = itemList.size

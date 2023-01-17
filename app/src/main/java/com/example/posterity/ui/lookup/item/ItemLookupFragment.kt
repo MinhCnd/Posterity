@@ -2,13 +2,17 @@ package com.example.posterity.ui.lookup.item
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.SearchView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.posterity.MainActivity
@@ -39,15 +43,28 @@ class ItemLookupFragment : Fragment() {
 
         // Display bin badges
         Bin.values().forEach { bin ->
+
             val viewToAdd = inflater.inflate(R.layout.bin_badge, binding.itemBadges, false)
             val badgeTextView = viewToAdd.findViewById<TextView>(R.id.name)
             val badgeIconImageView = viewToAdd.findViewById<ImageView>(R.id.icon)
 
             badgeTextView.text = getBinName(bin, resources)
+            badgeTextView.setTextColor(resources.getColor(R.color.light_green))
 
             badgeIconImageView.setImageDrawable(ResourcesCompat.getDrawable(resources, getBinIcon(bin), null))
+            val wrappedDrawable = DrawableCompat.wrap(badgeIconImageView.drawable)
+            wrappedDrawable.setTint(resources.getColor(R.color.light_green))
+
+            // set grid's child item gravities
+            val params = viewToAdd.layoutParams as GridLayout.LayoutParams
+            if (bin.ordinal == 1) {
+                params.setGravity(Gravity.CENTER_HORIZONTAL)
+            }
+            viewToAdd.layoutParams = params
+
             binding.itemBadges.addView(viewToAdd)
         }
+
         var adapter = ItemAdapter(emptyList())
         itemLookupViewModel.fullItemList.observe(viewLifecycleOwner) {
             adapter = ItemAdapter(it)

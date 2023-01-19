@@ -7,9 +7,11 @@
     <TextView
         android:id="@+id/titleView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/bin_badge_height"
         android:layout_marginStart="@dimen/bin_item_start_margin"
         android:paddingVertical="@dimen/bin_item_vertical_margin"
+        android:gravity="center_vertical"
+        style="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -18,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_marginStart="@dimen/bin_item_start_margin"
         android:paddingVertical="@dimen/bin_item_vertical_margin"
+        style="@style/TextAppearance.MaterialComponents.Subtitle2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleView"
         android:layout_height="wrap_content"/>
@@ -35,11 +38,12 @@
 
     <View
         android:id="@+id/divider"
-        android:layout_width="@dimen/bin_list_divider_width"
+        android:layout_width="0dp"
         android:layout_height="@dimen/bin_list_divider_height"
         android:background="@color/dark_gray"
         app:layout_constraintBottom_toBottomOf="@+id/descriptionView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

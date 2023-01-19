@@ -30,11 +30,15 @@ class LookupFragment : Fragment() {
         _binding = FragmentLookupBinding.inflate(inflater, container, false)
 
         childFragmentManager.commit {
+            binding.binLookupButton.isSelected = true
+            binding.itemLookupButton.isSelected = false
             setReorderingAllowed(true)
             add<BinLookupFragment>(R.id.lookup_container_view)
         }
 
         binding.binLookupButton.setOnClickListener {
+            binding.binLookupButton.isSelected = true
+            binding.itemLookupButton.isSelected = false
             childFragmentManager.commit {
                 setReorderingAllowed(true)
                 replace<BinLookupFragment>(R.id.lookup_container_view)
@@ -42,6 +46,8 @@ class LookupFragment : Fragment() {
         }
 
         binding.itemLookupButton.setOnClickListener {
+            binding.binLookupButton.isSelected = false
+            binding.itemLookupButton.isSelected = true
             childFragmentManager.commit {
                 setReorderingAllowed(true)
                 replace<ItemLookupFragment>(R.id.lookup_container_view)

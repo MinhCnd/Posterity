@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ButtonText" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/lookup_selector_button</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="HeadingText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="DescriptionText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>

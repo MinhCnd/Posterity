@@ -13,9 +13,7 @@
         android:layout_marginStart="@dimen/lookup_selection_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="@string/by_bin"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:textColor="@color/lookup_selector_button"
-        android:background="@android:color/transparent"
+        style="@style/ButtonText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

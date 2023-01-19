@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -11,7 +12,8 @@
         android:layout_marginStart="@dimen/bin_item_start_margin"
         android:paddingVertical="@dimen/bin_item_vertical_margin"
         android:gravity="center_vertical"
-        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+        style="@style/HeadingText"
+        tools:text="Rubbish"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,7 +22,8 @@
         android:layout_width="match_parent"
         android:layout_marginStart="@dimen/bin_item_start_margin"
         android:paddingVertical="@dimen/bin_item_vertical_margin"
-        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+        style="@style/DescriptionText"
+        tools:text="Description of items that can go in a rubbish bin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleView"
         android:layout_height="wrap_content"/>

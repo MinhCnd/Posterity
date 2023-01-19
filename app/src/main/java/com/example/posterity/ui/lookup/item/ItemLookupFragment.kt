@@ -1,7 +1,6 @@
 package com.example.posterity.ui.lookup.item
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.SearchView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
@@ -66,18 +64,14 @@ class ItemLookupFragment : Fragment() {
         }
 
         var adapter = ItemAdapter(emptyList())
+        binding.itemRecyclerView.adapter = adapter
         itemLookupViewModel.fullItemList.observe(viewLifecycleOwner) {
             adapter = ItemAdapter(it)
             binding.itemRecyclerView.adapter = adapter
         }
 
-
-
         binding.itemSearchView.setOnQueryTextListener ( object: SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Log.d("ItemLookupFragment","onQueryTextSubmit")
-                return false
-            }
+            override fun onQueryTextSubmit(query: String?) = false
 
             override fun onQueryTextChange(filter: String?): Boolean {
                 val newList = filter?.let{

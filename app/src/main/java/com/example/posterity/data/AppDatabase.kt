@@ -38,8 +38,10 @@ abstract class AppDatabase : RoomDatabase() {
                 Item(7, "Lipo Batteries",""),
                 Item(8, "Apple","", Bin.COMPOST.ordinal),
                 Item(9, "Milk bottles","", Bin.RECYCLING.ordinal),
-                Item(10, "Pizza box","", Bin.RECYCLING.ordinal),).forEach {
-                Log.d("AppDatabase","inserting $it")
+                Item(10, "Pizza box","", Bin.RECYCLING.ordinal),
+                Item(11,"plastic chair","", Bin.RUBBISH.ordinal),
+                Item(12, "pot plant", "", Bin.RUBBISH.ordinal),
+                Item(13,"Chicken feet","", Bin.RUBBISH.ordinal),).forEach {
                 itemDao.insert(it)
             }
         }

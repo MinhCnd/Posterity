@@ -38,11 +38,12 @@
 
     <View
         android:id="@+id/divider"
-        android:layout_width="@dimen/bin_list_divider_width"
+        android:layout_width="0dp"
         android:layout_height="@dimen/bin_list_divider_height"
         android:background="@color/dark_gray"
         app:layout_constraintBottom_toBottomOf="@+id/descriptionView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

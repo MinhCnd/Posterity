@@ -1,7 +1,6 @@
 package com.example.posterity.ui.lookup
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,16 +26,11 @@ class LookupFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d("LookupFragment","onCreateView")
 
         _binding = FragmentLookupBinding.inflate(inflater, container, false)
 
         val lookupViewModel =
             ViewModelProvider(this)[LookupViewModel::class.java]
-
-        lookupViewModel.lastLookupFragmentType.observe(viewLifecycleOwner) {
-            Log.d("LookupFragment","lastFragmentType =$it")
-        }
 
         childFragmentManager.commit {
             binding.binLookupButton.isSelected = true

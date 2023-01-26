@@ -22,4 +22,8 @@
     <dimen name="search_badge_description_box_width"> 80dp </dimen>
     <dimen name="search_item_height"> 40dp </dimen>
     <dimen name="search_item_icon_padding"> 5dp</dimen>
+
+    <dimen name="text_in_box_margin">10dp</dimen>
+    <dimen name="pre_disposal_box_height">100dp</dimen>
+    <dimen name="pre_disposal_icon_width">50dp</dimen>
 </resources>

@@ -19,4 +19,6 @@
     <string name="bin_compost_description">The following can go into your compost bin:\n\t\u002E Grass clippings, tree leaves, vegetable food scraps\n\t\u002E Black and white newspaper, printer paper\n\t\u002E Most disease free yard waste, cardboard\n\t\u002E Vegetarian animal manure(e.g. cows, horses, rabbits, hamsters, etc.)\n\t\u002E Wood shavings or sawdust</string>
     <string name="list_item_chevron">list item chevron</string>
     <string name="search_icon">search icon</string>
+    <string name="pre_disposal_instruction">Pre-disposal instruction</string>
+    <string name="refuse_and_recycling_centers">Refuse and recycling centers</string>
 </resources>

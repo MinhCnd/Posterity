@@ -30,11 +30,16 @@ class ItemInfoActivity: AppCompatActivity() {
             val item =  repository.loadById(intExtra)
             //Update View Model on the main thread
             withContext(Dispatchers.Main) {
-                item?.let {viewModel.setItem(it)}
+                item?.let {
+                    viewModel.setItem(it)
+                    binding.toolbar.title = it.name
+                }
+
             }
         }
 
         binding = ActivityItemInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
     }
 }

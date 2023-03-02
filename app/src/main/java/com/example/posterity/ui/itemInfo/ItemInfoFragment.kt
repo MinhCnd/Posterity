@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.posterity.data.Bin
 import com.example.posterity.databinding.FragmentItemInfoBinding
+import com.example.posterity.ui.lookup.bin.getBinIcon
+import com.example.posterity.ui.lookup.bin.getBinName
 
 class ItemInfoFragment: Fragment() {
     private var _binding : FragmentItemInfoBinding? = null
@@ -25,8 +28,26 @@ class ItemInfoFragment: Fragment() {
         _binding = FragmentItemInfoBinding.inflate(inflater, container, false)
 
         itemInfoViewModel.item.observe(this.viewLifecycleOwner) {
+            if(it.mainBinDesignation != null) {
+                val bin = Bin.values()[it.mainBinDesignation]
+                binding.primaryBinInstruction.preDisposalIcon.setImageResource(getBinIcon(bin))
+                binding.primaryBinInstruction.preDisposalTitle.text = getBinName(bin, resources)
+                binding.primaryBinInstruction.preDisposalInstructionText.text = it.mainBinInstruction
+            } else {
+                binding.primaryBinInstruction.root.visibility = View.GONE
+            }
 
+            if(it.secondaryBinDesignation != null) {
+                val bin = Bin.values()[it.secondaryBinDesignation]
+                binding.secondaryBinInstruction.preDisposalIcon.setImageResource(getBinIcon(bin))
+                binding.secondaryBinInstruction.preDisposalTitle.text = getBinName(bin, resources)
+                binding.secondaryBinInstruction.preDisposalInstructionText.text = it.mainBinInstruction
+            } else {
+                binding.secondaryBinInstruction.root.visibility = View.GONE
+            }
         }
+
+
 
         return binding.root
     }

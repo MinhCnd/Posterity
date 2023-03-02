@@ -1,7 +1,6 @@
 package com.example.posterity.ui.lookup.item
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -19,8 +18,8 @@ class ItemAdapter(private var itemList: List<Item>, private val itemClickCallbac
     override fun onBindViewHolder(viewHolder: ItemViewHolder, position: Int) {
         viewHolder.itemName.text = itemList[position].name
         val iconList = mutableListOf<Bin>()
-        itemList[position].binDesignation?.let { iconList.add(Bin.values()[it])}
-        itemList[position].subBinDesignation?.let { iconList.add(Bin.values()[it])}
+        itemList[position].mainBinDesignation?.let { iconList.add(Bin.values()[it])}
+        itemList[position].secondaryBinDesignation?.let { iconList.add(Bin.values()[it])}
         viewHolder.setIconIdList(iconList.map { getBinIcon(it)})
 
         viewHolder.itemView.setOnClickListener {

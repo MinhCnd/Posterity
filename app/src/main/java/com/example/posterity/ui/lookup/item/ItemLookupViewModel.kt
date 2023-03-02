@@ -1,6 +1,5 @@
 package com.example.posterity.ui.lookup.item
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
@@ -12,7 +11,6 @@ class ItemLookupViewModel(repository: AppRepository) : ViewModel() {
 
 class ItemLookupViewModelFactory(private val repository: AppRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        Log.d("ItemLookupViewModel", modelClass.toString())
         if(modelClass.isAssignableFrom(ItemLookupViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return ItemLookupViewModel(repository) as T

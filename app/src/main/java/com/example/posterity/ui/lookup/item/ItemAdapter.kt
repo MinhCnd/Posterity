@@ -10,7 +10,7 @@ import com.example.posterity.data.Bin
 import com.example.posterity.data.Item
 import com.example.posterity.ui.lookup.bin.getBinIcon
 
-class ItemAdapter(private var itemList: List<Item>) : RecyclerView.Adapter<ItemViewHolder>(){
+class ItemAdapter(private var itemList: List<Item>, private val itemClickCallback: ((Int) -> Unit)?) : RecyclerView.Adapter<ItemViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.search_row_item, parent, false)
         return ItemViewHolder(view)
@@ -22,6 +22,10 @@ class ItemAdapter(private var itemList: List<Item>) : RecyclerView.Adapter<ItemV
         itemList[position].binDesignation?.let { iconList.add(Bin.values()[it])}
         itemList[position].subBinDesignation?.let { iconList.add(Bin.values()[it])}
         viewHolder.setIconIdList(iconList.map { getBinIcon(it)})
+
+        viewHolder.itemView.setOnClickListener {
+            itemClickCallback?.invoke(itemList[position].id)
+        }
     }
 
     override fun getItemCount() = itemList.size

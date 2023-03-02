@@ -17,4 +17,8 @@ class AppRepository(private val itemDao: ItemDao) {
     suspend fun insert(item: Item) {
         itemDao.insert(item)
     }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun loadById(id: Int) = itemDao.loadById(id)
 }

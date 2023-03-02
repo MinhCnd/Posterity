@@ -8,7 +8,8 @@ import androidx.room.PrimaryKey
 data class Item(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String? = null,
-    @ColumnInfo(name = "pre_disposal_instruction") val preDisposalInstruction: String? = null,
-    @ColumnInfo(name = "main_bin_type") val binDesignation: Int? = null,
-    @ColumnInfo(name = "sub_bin_type") val subBinDesignation: Int? = null
+    @ColumnInfo(name = "main_bin_type") val mainBinDesignation: Int? = null,
+    @ColumnInfo(name = "main_bin_instruction") val mainBinInstruction: String? = null,
+    @ColumnInfo(name = "sub_bin_type") val secondaryBinDesignation: Int? = null,
+    @ColumnInfo(name = "sub_bin_instruction") val subBinInstruction: String? = null
 )

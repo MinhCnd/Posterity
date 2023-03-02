@@ -15,6 +15,9 @@ interface ItemDao {
     @Query("SELECT * FROM item_table WHERE id IN (:itemIds)")
     fun loadAllByIds(itemIds: IntArray): List<Item>
 
+    @Query("SELECT * FROM item_table WHERE id IN(:itemId)")
+    fun loadById(itemId: Int): Item?
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(item: Item)
 

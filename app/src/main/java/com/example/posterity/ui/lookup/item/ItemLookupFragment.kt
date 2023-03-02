@@ -1,10 +1,9 @@
 package com.example.posterity.ui.lookup.item
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,6 +12,8 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
+import com.example.posterity.ItemInfoActivity
 import com.example.posterity.MainActivity
 import com.example.posterity.R
 import com.example.posterity.data.Bin
@@ -63,10 +64,18 @@ class ItemLookupFragment : Fragment() {
             binding.itemBadges.addView(viewToAdd)
         }
 
-        var adapter = ItemAdapter(emptyList())
+
+        val clickCallBack: (Int) -> Unit = { itemId ->
+            run {
+                val intent = Intent(requireContext(),ItemInfoActivity::class.java)
+                intent.putExtra("itemId",itemId)
+                startActivity(intent)
+            }
+        }
+        var adapter = ItemAdapter(emptyList(), itemClickCallback = clickCallBack)
         binding.itemRecyclerView.adapter = adapter
         itemLookupViewModel.fullItemList.observe(viewLifecycleOwner) {
-            adapter = ItemAdapter(it)
+            adapter = ItemAdapter(it, clickCallBack)
             binding.itemRecyclerView.adapter = adapter
         }
 
@@ -76,7 +85,7 @@ class ItemLookupFragment : Fragment() {
             override fun onQueryTextChange(filter: String?): Boolean {
                 val newList = filter?.let{
                     itemLookupViewModel.fullItemList.value?.filter { item -> item.name?.lowercase()
-                        ?.contains(it.lowercase()) ?: false } ?: emptyList<Item>()
+                        ?.contains(it.lowercase()) ?: false } ?: emptyList()
                 }
                 newList?.run{adapter.setItemList(newList)}
                 return false

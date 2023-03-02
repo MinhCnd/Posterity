@@ -26,8 +26,8 @@
                 android:value="" />
         </activity>
         
-        <activity android:name=".ItemInfoActivity">
-
+        <activity android:name=".ItemInfoActivity"
+            android:parentActivityName=".MainActivity">
         </activity>
     </application>
 

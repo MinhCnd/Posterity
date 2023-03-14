@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Copy and paste the code below into your .git/hooks/pre-commit file
+
+# Run lint on the project before committing
+echo "*******************************"
+echo   "Running git pre-commit hook"
+echo "*******************************"
+
+./gradlew lint
+
+RESULT=$?
+
+# return 1 exit code if running checks fails
+if [ $RESULT -ne 0 ]; then
+  echo "lint failed"
+  exit 1
+else
+  exit 0
+fi
